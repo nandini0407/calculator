@@ -36,7 +36,10 @@ class Compute {
 
   evaluateDigit(e) {
     e.preventDefault();
-    if (this.operator === "") {
+    if (this.first === "Zero Division!") {
+      this.first = e.target.value;
+      this.renderResult(this.first);
+    } else if (this.operator === "") {
       this.first += e.target.value;
       this.renderResult(this.first);
     } else {
@@ -86,6 +89,7 @@ class Compute {
   }
 
   renderResult(num) {
+    console.log("here");
     let screen = document.getElementById("screen");
     screen.textContent = num;
   }
