@@ -9550,10 +9550,13 @@ var Calculator = function (_React$Component) {
 
     _this.state = {
       first: 0,
-      second: 0
+      second: 0,
+      operator: "",
+      result: ""
     };
 
     _this.update = _this.update.bind(_this);
+    _this.compute.bind(_this);
     return _this;
   }
 
@@ -9567,28 +9570,155 @@ var Calculator = function (_React$Component) {
       };
     }
   }, {
+    key: "compute",
+    value: function compute() {
+      var result = void 0;
+      switch (this.state.operator) {
+        case "add":
+          result = this.add();
+          break;
+        case "subtract":
+          result = this.subtract();
+          break;
+        case "multiply":
+          result = this.multiply();
+          break;
+        case "divide":
+          result = this.divide();
+          break;
+      }
+      this.reset(result);
+    }
+  }, {
+    key: "reset",
+    value: function reset(result) {
+      this.setState({
+        first: "",
+        second: "",
+        operator: "",
+        result: result
+      });
+    }
+  }, {
+    key: "add",
+    value: function add() {
+      return String(Number(this.state.first) + Number(this.state.second));
+    }
+  }, {
+    key: "subtract",
+    value: function subtract() {
+      return String(Number(this.state.first) - Number(this.state.second));
+    }
+  }, {
+    key: "multiply",
+    value: function multiply() {
+      return String(Number(this.state.first) - Number(this.state.second));
+    }
+  }, {
+    key: "divide",
+    value: function divide() {
+      if (this.state.second === "0") {
+        return "Zero Division Error!";
+      } else {
+        return String(Number(this.state.first) / Number(this.state.second));
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       return _react2.default.createElement(
         "div",
-        null,
-        _react2.default.createElement("input", {
-          type: "text",
-          className: "first",
-          placeholder: "First",
-          onChange: this.update('first')
-        }),
-        _react2.default.createElement("input", {
-          type: "text",
-          className: "second",
-          placeholder: "Second",
-          onChange: this.update('second')
-        }),
-        _react2.default.createElement("input", {
-          type: "radio",
-          name: "operation",
-          value: "Add"
-        })
+        { className: "calculator" },
+        _react2.default.createElement(
+          "div",
+          { className: "text-input" },
+          _react2.default.createElement("input", {
+            type: "text",
+            className: "text-box",
+            placeholder: "First",
+            onChange: this.update('first')
+          }),
+          _react2.default.createElement("input", {
+            type: "text",
+            className: "text-box",
+            placeholder: "Second",
+            onChange: this.update('second')
+          })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "radio-buttons" },
+          _react2.default.createElement(
+            "label",
+            null,
+            "Add",
+            _react2.default.createElement("input", {
+              type: "radio",
+              name: "operation",
+              value: "add",
+              onChange: this.update('operator'),
+              checked: this.state.operator === 'add'
+            })
+          ),
+          _react2.default.createElement(
+            "label",
+            null,
+            "Subtract",
+            _react2.default.createElement("input", {
+              type: "radio",
+              name: "operation",
+              value: "subtract",
+              onChange: this.update('operator'),
+              checked: this.state.operator === 'subtract'
+            })
+          ),
+          _react2.default.createElement(
+            "label",
+            null,
+            "Multiply",
+            _react2.default.createElement("input", {
+              type: "radio",
+              name: "operation",
+              value: "multiply",
+              onChange: this.update('operator'),
+              checked: this.state.operator === 'multiply'
+            })
+          ),
+          _react2.default.createElement(
+            "label",
+            null,
+            "Divide",
+            _react2.default.createElement("input", {
+              type: "radio",
+              name: "operation",
+              value: "divide",
+              onChange: this.update('operator'),
+              checked: this.state.operator === 'divide'
+            })
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "compute-result" },
+          _react2.default.createElement(
+            "button",
+            {
+              onClick: this.compute.bind(this),
+              className: "compute-button"
+            },
+            "Compute"
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "result-1" },
+            "Your result is :"
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "result-2" },
+            this.state.result
+          )
+        )
       );
     }
   }]);
