@@ -9620,7 +9620,7 @@ var Calculator = function (_React$Component) {
       if (this.state.second === "0") {
         return "Zero Division Error!";
       } else {
-        return String(Number(this.state.first) / Number(this.state.second));
+        return String((Number(this.state.first) / Number(this.state.second)).toFixed(2));
       }
     }
   }, {
