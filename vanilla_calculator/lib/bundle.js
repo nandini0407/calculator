@@ -63,26 +63,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compute_js__ = __webpack_require__(1);
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  var calcForm = document.getElementById("calc-form");
-  calcForm.addEventListener('submit', __WEBPACK_IMPORTED_MODULE_0__compute_js__["a" /* default */].compute);
-});
-
-
-/***/ }),
-/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -125,7 +110,22 @@ class Compute {
 
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Compute);
+/* unused harmony default export */ var _unused_webpack_default_export = (Compute);
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compute_js__ = __webpack_require__(0);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  var calcForm = document.getElementById("calc-form");
+  calcForm.addEventListener('submit', () => console.log("yes"));
+});
 
 
 /***/ })
