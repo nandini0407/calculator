@@ -2,10 +2,30 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script type="text/javascript" src="lib/bundle.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="./lib/bundle.js"></script>
     <title>Vanilla Calculator</title>
   </head>
   <body>
-    
+    <form id="calc-form">
+      <div class="input-text">
+        <label>
+          <input id="first" type="text" placeholder="First" class="text-box">
+        </label>
+        <label>
+          <input id="second" type="text" placeholder="Second" class="text-box">
+        </label>
+      </div>
+      <div class="radios">
+        <label><input type="radio" name="operation" class="radio-button" value="+">Add</label>
+        <label><input type="radio" name="operation" class="radio-button" value="-">Subtract</label>
+        <label><input type="radio" name="operation" class="radio-button" value="*">Multiply</label>
+        <label><input type="radio" name="operation" class="radio-button" value="/">Divide</label>
+      </div>
+      <input type="submit" class="submit-button" value="Submit" />
+    </form>
+    <div class="result">
+      Your result is :
+    </div>
   </body>
 </html>

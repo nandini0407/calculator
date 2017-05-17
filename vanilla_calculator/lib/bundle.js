@@ -68,9 +68,64 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-document.addEventListener('DOMContentLoaded', console.log("yes"));
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compute_js__ = __webpack_require__(1);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  var calcForm = document.getElementById("calc-form");
+  calcForm.addEventListener('submit', __WEBPACK_IMPORTED_MODULE_0__compute_js__["a" /* default */].compute);
+});
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class Compute {
+  constructor() {
+    this.first = 0;
+    this.second = 0;
+  }
+
+  grabValues() {
+    this.first = document.getElementById("first").value;
+    this.second = document.getElementById("second").value;
+  }
+
+  compute(e) {
+    console.log("yes");
+    console.log(e);
+  }
+
+  add() {
+    console.log(this.first);
+    return this.first + this.second;
+  }
+
+  subtract() {
+    return this.first - this.second;
+  }
+
+  multiply() {
+    return this.first * this.second;
+  }
+
+  divide() {
+    if (this.second === 0) {
+      return "Invalid division attempted";
+    } else {
+      return this.first / this.second;
+    }
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Compute);
 
 
 /***/ })
