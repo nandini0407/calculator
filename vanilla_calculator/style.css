@@ -8,56 +8,6 @@ body {
   font-size: 13px;
 }
 
-#calc-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 40px;
-  padding: 20px;
-}
-
-.input-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  margin: 10px;
-}
-
-.text-box {
-  margin: 10px;
-  border-radius: 3px;
-  border: 1px solid black;
-  padding: 7px;
-}
-
-.radios {
-  display: flex;
-  justify-content: center;
-}
-
-.radio-button {
-  padding: 10px;
-  margin: 10px;
-}
-
-.submit-button {
-  background-color: green;
-  border: 1px solid black;
-  border-radius: 3px;
-  padding: 7px;
-}
-
-.result-div {
-
-}
-
-#result {
-
-}
-
 .calculator {
   width: 22%;
   height: 360px;
@@ -67,17 +17,29 @@ body {
   align-items: center;
   background-color: #807a8e;
   padding: 0px 15px;
-  margin: 7px 10px;
+  margin: 60px;
   border-radius: 6px;
   box-shadow: 3px 3px 10px 1px;
 }
 
-#screen {
-  background-color: #dee2e0;
+.screen-wrapper {
   border-radius: 3px;
   width: 95%;
   height: 50px;
   margin: 10px 0;
+  background-color: #dee2e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#screen {
+  width: 100%;
+  padding: 0 10px;
+  background-color: #dee2e0;
+  text-align: right;
+  font-size: 24px;
+  font-weight: 160;
 }
 
 .numbers {
@@ -114,6 +76,14 @@ body {
 
 }
 
+.last-row-left {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  align-items: center;
+}
+
 .cal-button {
   width: 25%;
   height: 50px;
@@ -128,5 +98,20 @@ body {
   border-radius: 4px;
   box-shadow: 2px 2px;
   font-size: 18px;
+  font-weight: bold;
+}
+
+.last-row-left-button {
+  height: 80%;
+  width: 38%;
+  margin: 0 3px;
+}
+
+.btn-left {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  box-shadow: 2px 2px;
+  font-size: 15px;
   font-weight: bold;
 }

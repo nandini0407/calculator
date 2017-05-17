@@ -166,60 +166,6 @@ class Compute {
 
 /* harmony default export */ __webpack_exports__["a"] = (Compute);
 
-// export const computeCalc = (e) => {
-//   e.preventDefault();
-//   let first = Number(e.target.children[0].children[0].children[0].value);
-//   let second = Number(e.target.children[0].children[1].children[0].value);
-//   let radioNodes = e.target.children[1].children;
-//   let operator;
-//   for(let i=0; i<radioNodes.length; i++) {
-//     if (radioNodes[i].children[0].checked) {
-//       operator = radioNodes[i].children[0].value;
-//     }
-//   }
-//   let result = 0;
-//   switch (operator) {
-//     case '+':
-//       result = add(first, second);
-//       break;
-//     case '-':
-//       result = subtract(first, second);
-//       break;
-//     case '*':
-//       result = multiply(first, second);
-//       break;
-//     case '/':
-//       result = divide(first, second);
-//       break;
-//   }
-//   renderResult(result);
-// };
-//
-// const add = (first, second) => {
-//   return first + second;
-// };
-//
-// const subtract = (first, second) => {
-//   return first - second;
-// };
-//
-// const multiply = (first, second) => {
-//   return first * second;
-// };
-//
-// const divide = (first, second) => {
-//   if (second === 0) {
-//     return "Zero division! Try again";
-//   } else {
-//     return first / second;
-//   }
-// };
-//
-// const renderResult = (result) => {
-//   let res = document.getElementById("result");
-//   res.textContent = result;
-// };
-
 
 /***/ }),
 /* 1 */
@@ -228,13 +174,9 @@ class Compute {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__compute__ = __webpack_require__(0);
-// import * as Utils from './compute';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  // var calcForm = document.getElementById('calc-form');
-  // calcForm.addEventListener('submit', Utils.computeCalc);
-
   let numList = document.getElementsByClassName("number");
   let opList = document.getElementsByClassName("operator");
   let clr = document.getElementsByClassName("clear")[0];

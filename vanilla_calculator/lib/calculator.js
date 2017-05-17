@@ -1,10 +1,6 @@
-// import * as Utils from './compute';
 import Compute from './compute';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // var calcForm = document.getElementById('calc-form');
-  // calcForm.addEventListener('submit', Utils.computeCalc);
-
   let numList = document.getElementsByClassName("number");
   let opList = document.getElementsByClassName("operator");
   let clr = document.getElementsByClassName("clear")[0];
