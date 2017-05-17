@@ -140,6 +140,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 document.addEventListener('DOMContentLoaded', () => {
   var calcForm = document.getElementById('calc-form');
   calcForm.addEventListener('submit', __WEBPACK_IMPORTED_MODULE_0__compute__["a" /* computeCalc */]);
+  
 });
 
 

@@ -51,9 +51,82 @@ body {
 }
 
 .result-div {
-  
+
 }
 
 #result {
 
+}
+
+.calculator {
+  width: 22%;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #807a8e;
+  padding: 0px 15px;
+  margin: 7px 10px;
+  border-radius: 6px;
+  box-shadow: 3px 3px 10px 1px;
+}
+
+.screen {
+  background-color: #dee2e0;
+  border-radius: 3px;
+  width: 95%;
+  height: 50px;
+  margin: 10px 0;
+}
+
+.numbers {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calc-buttons {
+  width: 100%;
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px 5px;
+  margin: 5px 0px;
+}
+
+.first-row {
+
+}
+
+.second-row {
+
+}
+
+.third-row {
+
+}
+
+.fourth-row {
+
+}
+
+.cal-button {
+  width: 25%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  width: 80%;
+  height: 80%;
+  border-radius: 4px;
+  box-shadow: 2px 2px;
+  font-size: 18px;
+  font-weight: bold;
 }
