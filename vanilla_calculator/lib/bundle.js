@@ -71,6 +71,101 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+
+class Compute {
+  constructor() {
+    this.first = "";
+    this.operator = "";
+    this.second = "";
+  }
+
+  handleEquals() {
+    if (this.second === "") {
+      this.operator = "";
+      return this.first;
+    } else {
+      this.performOperation();
+    }
+  }
+
+  performOperation() {
+    switch (this.operator) {
+      case '+':
+        this.add();
+        break;
+      case '-':
+        this.subtract();
+        break;
+      case '*':
+        this.multiply();
+        break;
+      case '/':
+        this.divide();
+        break;
+    }
+    this.second = "";
+    this.operator = "";
+  }
+
+  evaluateDigit(e) {
+    e.preventDefault();
+    if (this.operator === "") {
+      this.first += e.target.value;
+      this.renderResult(this.first);
+    } else {
+      this.second += e.target.value;
+      this.renderResult(this.second);
+    }
+  }
+
+  evaluateOperator(e) {
+    e.preventDefault();
+    if (e.target.value === "=") {
+      this.handleEquals();
+    } else if (this.operator === "") {
+      this.operator = e.target.value;
+    } else {
+      this.performOperation();
+      this.operator = e.target.value;
+    }
+    this.renderResult(this.first);
+  }
+
+  add() {
+    this.first = String(Number(this.first) + Number(this.second));
+  }
+
+  subtract() {
+    this.first = String(Number(this.first) - Number(this.second));
+  }
+
+  multiply() {
+    this.first = String(Number(this.first) * Number(this.second));
+  }
+
+  divide() {
+    if (this.second === "0") {
+      this.first = "Zero Division!";
+    } else {
+      this.first = String(Number(this.first) / Number(this.second));
+    }
+  }
+
+  clearScreen() {
+    this.first = "";
+    this.operator = "";
+    this.second = "";
+    this.renderResult();
+  }
+
+  renderResult(num) {
+    let screen = document.getElementById("screen");
+    screen.textContent = num;
+  }
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Compute);
+
 // export const computeCalc = (e) => {
 //   e.preventDefault();
 //   let first = Number(e.target.children[0].children[0].children[0].value);
@@ -125,88 +220,6 @@
 //   res.textContent = result;
 // };
 
-class Compute {
-  constructor() {
-    this.first = "";
-    this.operator = "";
-    this.second = "";
-  }
-
-  evaluateDigit(e) {
-    e.preventDefault();
-    if (this.operator === "") {
-      this.first += e.target.value;
-    } else if (this.operator === "=") {
-
-    } else {
-      this.second += e.target.value;
-    }
-  }
-
-  handleEquals() {
-    if (this.second === "") {
-      this.operator = "";
-      return this.first;
-    } else {
-      this.performOperation();
-    }
-  }
-
-  performOperation() {
-    switch (this.operator) {
-      case '+':
-        this.add();
-        break;
-      case '-':
-        this.subtract();
-        break;
-      case '*':
-        this.multiply();
-        break;
-      case '/':
-        this.divide();
-        break;
-    }
-    this.second = "";
-    this.operator = "";
-  }
-
-  evaluateOperator(e) {
-    e.preventDefault();
-    console.log("operator");
-    console.log(typeof e.target.value);
-    if (e.target.value === "=") {
-      this.handleEquals();
-    } else if (this.operator === "") {
-      this.operator = e.target.value;
-    } else {
-      this.performOperation();
-    }
-  }
-
-  add() {
-    this.first = String(Number(this.first) + Number(this.second));
-  }
-
-  subtract() {
-    this.first = String(Number(this.first) - Number(this.second));
-  }
-
-  multiply() {
-    this.first = String(Number(this.first) * Number(this.second));
-  }
-
-  divide() {
-    if (this.second === "0") {
-      this.first = "Zero Division!";
-    } else {
-      this.first = String(Number(this.first) / Number(this.second));
-    }
-  }
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (Compute);
-
 
 /***/ }),
 /* 1 */
@@ -224,13 +237,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let numList = document.getElementsByClassName("number");
   let opList = document.getElementsByClassName("operator");
+  let clr = document.getElementsByClassName("clear")[0];
   let comp = new __WEBPACK_IMPORTED_MODULE_0__compute__["a" /* default */]();
   for(let i=0; i<numList.length; i++) {
-    numList[i].addEventListener("click", comp.evaluateDigit);
+    numList[i].addEventListener("click", comp.evaluateDigit.bind(comp));
   }
   for(let i=0; i<opList.length; i++) {
-    opList[i].addEventListener("click", comp.evaluateOperator);
+    opList[i].addEventListener("click", comp.evaluateOperator.bind(comp));
   }
+  clr.addEventListener("click", comp.clearScreen.bind(comp));
 });
 
 
