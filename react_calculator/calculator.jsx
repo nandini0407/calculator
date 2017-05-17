@@ -4,8 +4,8 @@ class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      first: 0,
-      second: 0,
+      first: "",
+      second: "",
       operator: "",
       result: ""
     };
@@ -57,7 +57,7 @@ class Calculator extends React.Component {
   }
 
   multiply() {
-    return String(Number(this.state.first) - Number(this.state.second));
+    return String(Number(this.state.first) * Number(this.state.second));
   }
 
   divide() {
@@ -76,18 +76,19 @@ class Calculator extends React.Component {
             type="text"
             className="text-box"
             placeholder="First"
+            value={ this.state.first }
             onChange={ this.update('first') }
             />
           <input
             type="text"
             className="text-box"
             placeholder="Second"
+            value={ this.state.second }
             onChange={ this.update('second') }
             />
         </div>
         <div className="radio-buttons">
           <label>
-            Add
             <input
               type="radio"
               name="operation"
@@ -95,9 +96,9 @@ class Calculator extends React.Component {
               onChange={ this.update('operator') }
               checked={ this.state.operator === 'add'}
               />
+            Add
           </label>
           <label>
-            Subtract
             <input
               type="radio"
               name="operation"
@@ -105,9 +106,9 @@ class Calculator extends React.Component {
               onChange={ this.update('operator') }
               checked={ this.state.operator === 'subtract'}
               />
+            Subtract
           </label>
           <label>
-            Multiply
             <input
               type="radio"
               name="operation"
@@ -115,9 +116,9 @@ class Calculator extends React.Component {
               onChange={ this.update('operator') }
               checked={ this.state.operator === 'multiply'}
               />
+            Multiply
           </label>
           <label>
-            Divide
             <input
               type="radio"
               name="operation"
@@ -125,6 +126,7 @@ class Calculator extends React.Component {
               onChange={ this.update('operator') }
               checked={ this.state.operator === 'divide'}
               />
+            Divide
           </label>
         </div>
         <div className="compute-result">
