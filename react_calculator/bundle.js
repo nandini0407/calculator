@@ -9685,8 +9685,12 @@ var Calculator = function (_React$Component) {
         { className: "calculator" },
         _react2.default.createElement(
           "div",
-          { className: "screen" },
-          val
+          { className: "screen-wrapper" },
+          _react2.default.createElement(
+            "div",
+            { className: "screen" },
+            val
+          )
         ),
         _react2.default.createElement(
           "div",

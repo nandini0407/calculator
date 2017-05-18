@@ -133,7 +133,9 @@ class Calculator extends React.Component {
     let val = (this.state.second === "") ? this.state.first : this.state.second;
     return (
       <div className="calculator">
-        <div className="screen">{ val }</div>
+        <div className="screen-wrapper">
+          <div className="screen">{ val }</div>
+        </div>
         <div className="keyPad">
           <ul className="calc-btn-row">
             <li key={1} className="btn lst number" onClick={ this.evaluateDigit.bind(this) } value="7" >7</li>
