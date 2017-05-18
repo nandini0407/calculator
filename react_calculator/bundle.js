@@ -9548,13 +9548,13 @@ var Calculator = function (_React$Component) {
     key: "handleOperator",
     value: function handleOperator(val) {
       switch (val) {
-        case "4":
+        case 4:
           return "+";
-        case "3":
+        case 3:
           return "-";
-        case "2":
+        case 2:
           return "*";
-        case "1":
+        case 1:
           return "/";
       }
     }
@@ -9586,7 +9586,6 @@ var Calculator = function (_React$Component) {
     key: "evaluateEquals",
     value: function evaluateEquals(e) {
       e.preventDefault();
-      console.log(this.state.first);
       if (this.state.second === "") {
         this.setState({
           operator: ""
@@ -9596,21 +9595,39 @@ var Calculator = function (_React$Component) {
       }
     }
   }, {
+    key: "evaluateDecimal",
+    value: function evaluateDecimal(e) {
+      e.preventDefault();
+      if (this.state.operator === "") {
+        this.setState({
+          first: this.state.first + "."
+        });
+      } else {
+        this.setState({
+          second: this.state.second + "."
+        });
+      }
+    }
+  }, {
     key: "evaluateDigit",
     value: function evaluateDigit(e) {
       e.preventDefault();
-      console.log(this.state.first);
-      if (this.state.operator === "") {
-        this.setState({ first: this.state.first += e.target.value });
+      if (this.state.first === "Zero Division!") {
+        this.setState({
+          first: e.target.value,
+          second: "",
+          operator: ""
+        });
+      } else if (this.state.operator === "") {
+        this.setState({ first: this.state.first + e.target.value });
       } else {
-        this.setState({ second: this.state.second += e.target.value });
+        this.setState({ second: this.state.second + e.target.value });
       }
     }
   }, {
     key: "evaluateOperator",
     value: function evaluateOperator(e) {
       e.preventDefault();
-      console.log(this.state.first);
       var operator = this.handleOperator(e.target.value);
       if (this.state.operator === "") {
         this.setState({ operator: operator });
@@ -9662,13 +9679,14 @@ var Calculator = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var val = this.state.second === "" ? this.state.first : this.state.second;
       return _react2.default.createElement(
         "div",
         { className: "calculator" },
         _react2.default.createElement(
           "div",
           { className: "screen" },
-          this.state.first
+          val
         ),
         _react2.default.createElement(
           "div",
@@ -9758,7 +9776,7 @@ var Calculator = function (_React$Component) {
               ),
               _react2.default.createElement(
                 "li",
-                { key: 2, className: "btn decimal", onClick: this.evaluateDigit.bind(this), value: "6" },
+                { key: 2, className: "btn decimal", onClick: this.evaluateDecimal.bind(this), value: "6" },
                 "."
               )
             ),

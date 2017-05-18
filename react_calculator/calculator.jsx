@@ -12,13 +12,13 @@ class Calculator extends React.Component {
 
   handleOperator(val) {
     switch (val) {
-      case "4":
+      case 4:
         return "+";
-      case "3":
+      case 3:
         return "-";
-      case "2":
+      case 2:
         return "*";
-      case "1":
+      case 1:
         return "/";
     }
   }
@@ -48,7 +48,6 @@ class Calculator extends React.Component {
 
   evaluateEquals(e) {
     e.preventDefault();
-    console.log(this.state.first);
     if (this.state.second === "") {
       this.setState({
         operator: ""
@@ -58,19 +57,36 @@ class Calculator extends React.Component {
     }
   }
 
+  evaluateDecimal(e) {
+    e.preventDefault();
+    if (this.state.operator === "") {
+      this.setState({
+        first: this.state.first + "."
+      });
+    } else {
+      this.setState({
+        second: this.state.second + "."
+      });
+    }
+  }
+
   evaluateDigit(e) {
     e.preventDefault();
-    console.log(this.state.first);
-    if (this.state.operator === "") {
-      this.setState({ first: this.state.first += e.target.value });
+    if (this.state.first === "Zero Division!") {
+      this.setState({
+        first: e.target.value,
+        second: "",
+        operator: ""
+       });
+    } else if (this.state.operator === "") {
+      this.setState({ first: this.state.first + e.target.value });
     } else {
-      this.setState({ second: this.state.second += e.target.value });
+      this.setState({ second: this.state.second + e.target.value });
     }
   }
 
   evaluateOperator(e) {
     e.preventDefault();
-    console.log(this.state.first);
     let operator = this.handleOperator(e.target.value);
     if (this.state.operator === "") {
       this.setState({ operator: operator });
@@ -114,9 +130,10 @@ class Calculator extends React.Component {
   // values in the li elements corresond to the follwing :
   // 1: divide, 2: multiply, 3: subtract, 4: add, 5: equals(=), 6: decimal point
   render() {
+    let val = (this.state.second === "") ? this.state.first : this.state.second;
     return (
       <div className="calculator">
-        <div className="screen">{ this.state.first }</div>
+        <div className="screen">{ val }</div>
         <div className="keyPad">
           <ul className="calc-btn-row">
             <li key={1} className="btn lst number" onClick={ this.evaluateDigit.bind(this) } value="7" >7</li>
@@ -139,7 +156,7 @@ class Calculator extends React.Component {
           <ul className="last-row">
             <ul key={1} className="left-last-row lst">
               <li key={1} className="btn clear" onClick={ this.clearScreen.bind(this) } value="C" >C</li>
-              <li key={2} className="btn decimal" onClick={ this.evaluateDigit.bind(this) } value="6" >.</li>
+              <li key={2} className="btn decimal" onClick={ this.evaluateDecimal.bind(this) } value="6" >.</li>
             </ul>
             <li key={2} className="btn lst number" onClick={ this.evaluateDigit.bind(this) } value="0" >0</li>
             <li key={3} className="btn lst operator" onClick={ this.evaluateEquals.bind(this) } value="5" >=</li>
