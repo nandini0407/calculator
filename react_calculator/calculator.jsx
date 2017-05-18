@@ -8,6 +8,12 @@ class Calculator extends React.Component {
       second: "",
       operator: "",
     };
+
+    this.clearScreen = this.clearScreen.bind(this);
+    this.evaluateDigit = this.evaluateDigit.bind(this);
+    this.evaluateDecimal = this.evaluateDecimal.bind(this);
+    this.evaluateOperator = this.evaluateOperator.bind(this);
+    this.evaluateEquals = this.evaluateEquals.bind(this);
   }
 
   handleOperator(val) {
@@ -138,31 +144,31 @@ class Calculator extends React.Component {
         </div>
         <div className="keyPad">
           <ul className="calc-btn-row">
-            <li key={1} className="btn lst number" onClick={ this.evaluateDigit.bind(this) } value="7" >7</li>
-            <li key={2} className="btn lst number" onClick={ this.evaluateDigit.bind(this) } value="8" >8</li>
-            <li key={3} className="btn lst number" onClick={ this.evaluateDigit.bind(this) } value="9" >9</li>
-            <li key={4} className="btn lst operator" onClick={ this.evaluateOperator.bind(this) } value="1" >/</li>
+            <li key={1} className="btn lst number" onClick={ this.evaluateDigit } value="7" >7</li>
+            <li key={2} className="btn lst number" onClick={ this.evaluateDigit } value="8" >8</li>
+            <li key={3} className="btn lst number" onClick={ this.evaluateDigit } value="9" >9</li>
+            <li key={4} className="btn lst operator" onClick={ this.evaluateOperator } value="1" >/</li>
           </ul>
           <ul className="calc-btn-row">
-            <li key={1} className="btn lst number" onClick={ this.evaluateDigit.bind(this) } value="4" >4</li>
-            <li key={2} className="btn lst number" onClick={ this.evaluateDigit.bind(this) } value="5" >5</li>
-            <li key={3} className="btn lst number" onClick={ this.evaluateDigit.bind(this) } value="6" >6</li>
-            <li key={4} className="btn lst operator" onClick={ this.evaluateOperator.bind(this) } value="2" >*</li>
+            <li key={1} className="btn lst number" onClick={ this.evaluateDigit } value="4" >4</li>
+            <li key={2} className="btn lst number" onClick={ this.evaluateDigit } value="5" >5</li>
+            <li key={3} className="btn lst number" onClick={ this.evaluateDigit } value="6" >6</li>
+            <li key={4} className="btn lst operator" onClick={ this.evaluateOperator } value="2" >*</li>
           </ul>
           <ul className="calc-btn-row">
-            <li key={1} className="btn lst number" onClick={ this.evaluateDigit.bind(this) } value="1" >1</li>
-            <li key={2} className="btn lst number" onClick={ this.evaluateDigit.bind(this) } value="2" >2</li>
-            <li key={3} className="btn lst number" onClick={ this.evaluateDigit.bind(this) } value="3" >3</li>
-            <li key={4} className="btn lst operator" onClick={ this.evaluateOperator.bind(this) } value="3" >-</li>
+            <li key={1} className="btn lst number" onClick={ this.evaluateDigit } value="1" >1</li>
+            <li key={2} className="btn lst number" onClick={ this.evaluateDigit } value="2" >2</li>
+            <li key={3} className="btn lst number" onClick={ this.evaluateDigit } value="3" >3</li>
+            <li key={4} className="btn lst operator" onClick={ this.evaluateOperator } value="3" >-</li>
           </ul>
           <ul className="last-row">
             <ul key={1} className="left-last-row lst">
-              <li key={1} className="btn clear" onClick={ this.clearScreen.bind(this) } value="C" >C</li>
-              <li key={2} className="btn decimal" onClick={ this.evaluateDecimal.bind(this) } value="6" >.</li>
+              <li key={1} className="btn clear" onClick={ this.clearScreen } value="C" >C</li>
+              <li key={2} className="btn decimal" onClick={ this.evaluateDecimal } value="6" >.</li>
             </ul>
-            <li key={2} className="btn lst number" onClick={ this.evaluateDigit.bind(this) } value="0" >0</li>
-            <li key={3} className="btn lst operator" onClick={ this.evaluateEquals.bind(this) } value="5" >=</li>
-            <li key={4} className="btn lst operator" onClick={ this.evaluateOperator.bind(this) } value="4" >+</li>
+            <li key={2} className="btn lst number" onClick={ this.evaluateDigit } value="0" >0</li>
+            <li key={3} className="btn lst operator" onClick={ this.evaluateEquals } value="5" >=</li>
+            <li key={4} className="btn lst operator" onClick={ this.evaluateOperator } value="4" >+</li>
           </ul>
         </div>
       </div>
